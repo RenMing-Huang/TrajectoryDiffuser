@@ -317,8 +317,8 @@ class Policy(object):
                 # if length % 100 == 0:
                 #     unnormaled_state = normalizer.unnormalize(state[:1].detach().cpu().data.numpy(), "observations")
                 #     render.composite(f"./reference/{self.env_name}_sample-reference_pre.png", unnormaled_state)
-                state = torch.randn_like(state)
-                state = self.ema_model.ddim_sample(state, cond, condtion, ddim_timesteps=5)
+                # state = torch.randn_like(state)
+                # state = self.ema_model.ddim_sample(state, cond, condtion, ddim_timesteps=5)
                 # if length % 100 == 0:
                 #     unnormaled_state = normalizer.unnormalize(state[:1].detach().cpu().data.numpy(), "observations")
                 #     render.composite(f"./reference/{self.env_name}_sample-reference_after.png", unnormaled_state)

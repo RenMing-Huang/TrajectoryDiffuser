@@ -147,7 +147,7 @@ def main():
 
         record(writer, "loss", loss, cnt)
         if cnt % eval_freq == 0:
-            reward_td = policy.evaluate(env, 30, normalizer, rtg, scale, False)
+            reward_td = policy.evaluate(env, 30, normalizer, rtg, scale, True)
             record(writer, "reward_td", reward_td, cnt)
             formate_print(loss, reward_td, cnt)
         if cnt == 1 or cnt % save_freq == 0:

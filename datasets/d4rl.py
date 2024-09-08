@@ -40,9 +40,10 @@ def load_environment(name):
     return env
 
 def get_dataset(env):
-    dataset = env.get_dataset()
+    
 
     if 'antmaze' in str(env).lower():
+        dataset = env.get_dataset()
         dataset = d4rl.qlearning_dataset(env)
         # antmaze: terminals are incorrect for GCRL
         dones_float = np.zeros_like(dataset['rewards'])
@@ -54,6 +55,9 @@ def get_dataset(env):
             else:
                 dataset['terminals'][i] = 0
         dataset['terminals'][-1] = 1
+    
+    else:
+        dataset = d4rl.qlearning_dataset(env)
 
     return dataset
 
